@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>dfs.name.dir</name>
+    <value>namenode_directory</value>
+    <description>Determines where on the local filesystem the DFS name node
+should store the name table.  If this is a comma-delimited list
+of directories then the name table is replicated in all of the
+directories, for redundancy. </description>
+    <final>true</final>
+  </property>
+  <property>
+    <name>dfs.data.dir</name>
+    <value>hadoop_data_directory</value>
+    <description>Determines where on the local filesystem an DFS data node
+should store its blocks.  If this is a comma-delimited
+list of directories, then data will be stored in all named
+directories, typically on different devices.
+Directories that do not exist are ignored.
+</description>
+    <final>true</final>
+  </property>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>hadoop_tmp_dir</value>
+    <description>A base for other temporary directories.</description>
+  </property>
+
+<property>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+    <description>
+This is the default replication factor for each block of data in the
+file system. For a production cluster, this should usually be left at
+its default value of 3. (You are free to increase your replication
+factor, though this may be unnecessary and use more space than is
+required. Fewer than three replicas impact the high availability of
+information, and possibly the reliability of its storage
+</description>
+    <final>true</final>
+  </property>
+</configuration>
+
