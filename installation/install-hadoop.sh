@@ -55,7 +55,7 @@ then
 	checkExitStatus $?
 fi
 cd tmp
-wget ${hadoopSources[${option}]}
+#wget ${hadoopSources[${option}]}
 checkExitStatus $?
 
 filename=`ls -l hadoop* | awk '{print $NF}'`
@@ -66,7 +66,7 @@ rm -rf ../$directoryToMove 2> /dev/null 2>&1
 mv $directoryToMove ../
 cd ../$directoryToMove
 cp $scriptLocation/hdfs-site.xml.template conf/
-cp $scriptLocation/core-site.xml.template conf/
+cp $scriptLocation/core-site.xml.template conf/core-site.xml
 cp $scriptLocation/mapred-site.xml.template conf/
 cd conf
 echo "Please provide JAVA_HOME"
@@ -95,7 +95,7 @@ read mapred_system_dir
 echo "Please provide mapred_local_dir"
 read mapred_local_dir
 
-sed "s|mapred_system_dir|$mapred_system_dir|g" core-site.xml.template > tmp
+sed "s|mapred_system_dir|$mapred_system_dir|g" mapred-site.xml.template > tmp
 sed "s|mapred_local_dir|$mapred_local_dir|g" tmp > mapred-site.xml
 rm tmp
 cd ..
