@@ -1,5 +1,6 @@
 #!/bin/sh
-set -x
+#remove # in below line to enable debug mode
+#set -x
 
 checkExitStatus() {
 
@@ -55,7 +56,7 @@ then
 	checkExitStatus $?
 fi
 cd tmp
-#wget ${hadoopSources[${option}]}
+wget ${hadoopSources[${option}]}
 checkExitStatus $?
 
 filename=`ls -l hadoop* | awk '{print $NF}'`
